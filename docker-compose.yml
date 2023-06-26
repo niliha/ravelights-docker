@@ -1,0 +1,15 @@
+version: '3'
+services:
+  ravelights-backend:
+    container_name: ravelights-backend
+    build: ../ravelights
+    ports:
+      - 5000:5000
+    network_mode: "host"
+    command: python3 src/main.py
+  ravelights-frontend:
+    container_name: ravelights-frontend
+    build: ../ravelights-ui
+    ports:
+      - 80:80
+    network_mode: "host"
