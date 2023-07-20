@@ -4,7 +4,9 @@ services:
     container_name: ravelights-backend
     build: ../ravelights
     network_mode: "host"
-    command: python3 main.py --restapi-port 5000 --no-webinterface
+    command: python3 main.py --no-webui --artnet-serial --no-visualizer
+    devices:
+      - "/dev/ttyAMA0:/dev/ttyAMA0"
   ravelights-frontend:
     container_name: ravelights-frontend
     build: ../ravelights-ui
